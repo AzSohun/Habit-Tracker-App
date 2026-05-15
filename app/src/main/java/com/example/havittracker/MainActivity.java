@@ -1,5 +1,6 @@
 package com.example.havittracker;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,7 +35,17 @@ public class MainActivity extends AppCompatActivity {
 
                 count++;
 
+                GetUI();
 
+            }
+        });
+
+        binding.btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                count = 0;
+                GetUI();
 
             }
         });
@@ -47,5 +58,15 @@ public class MainActivity extends AppCompatActivity {
         binding.tvCounter.setText(String.valueOf(count));
     }
 
+    // Save the Count Result
+    private void SaveCount(){
+
+        SharedPreferences sharedPreferences = getSharedPreferences(HABIT_PREF, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putInt(KEY_COUNT, count);
+        editor.apply();
+
+    }
 
 }
