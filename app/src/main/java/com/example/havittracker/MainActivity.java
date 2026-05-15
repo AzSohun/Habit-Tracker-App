@@ -14,13 +14,17 @@ import com.example.havittracker.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
+    private ActivityMainBinding binding;
     private int count = 0;
+
+    private static final String HABIT_PREF = "HabitTrackingPreference";
+    private static final String KEY_COUNT = "daily_count";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
 
         setContentView(binding.getRoot());
 
@@ -30,10 +34,18 @@ public class MainActivity extends AppCompatActivity {
 
                 count++;
 
-                binding.tvCounter.setText(String.valueOf(count));
+
 
             }
         });
 
     }
+
+
+    // Get The Updated Count UI
+    private void GetUI(){
+        binding.tvCounter.setText(String.valueOf(count));
+    }
+
+
 }
