@@ -66,6 +66,20 @@ public class MainActivity extends AppCompatActivity {
 
         editor.putInt(KEY_COUNT, count);
         editor.apply();
+        // ❌ editor.commit() -> commit() blocked the Main thread which can causes of app lagging. apply() is the best practice.
+
+    }
+
+    // Load Saved Data
+    private void LoadSavedData(){
+
+        SharedPreferences sharedPreferences = getSharedPreferences(HABIT_PREF, MODE_PRIVATE);
+
+        // If sharedPreferences cannot find any value in the KEY_COUNT than it set the default value 0.
+        count = sharedPreferences.getInt(KEY_COUNT, 0);
+
+        // Update th UI
+        GetUI();
 
     }
 
