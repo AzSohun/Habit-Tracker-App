@@ -3,4 +3,7 @@
     <string name="add_1">Add +1</string>
     <string name="reset">Reset</string>
     <string name="_0">0</string>
+    <string name="reset_counter">Reset Counter</string>
+    <string name="add_count">Add +1</string>
+    <string name="current_count">CURRENT COUNT</string>
 </resources>

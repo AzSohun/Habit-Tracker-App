@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
                 count++;
                 GetUI();
                 SaveCount();
-
             }
         });
 
@@ -50,12 +49,8 @@ public class MainActivity extends AppCompatActivity {
                 count = 0;
                 GetUI();
                 SaveCount();
-                LoadSavedData();
-
-
             }
         });
-
     }
 
 
@@ -73,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
         editor.putInt(KEY_COUNT, count);
         editor.apply();
         // ❌ editor.commit() -> commit() blocked the Main thread which can causes of app lagging. apply() is the best practice.
-
     }
 
     // Load Saved Data
@@ -86,7 +80,5 @@ public class MainActivity extends AppCompatActivity {
 
         // Update th UI
         GetUI();
-
     }
-
 }
