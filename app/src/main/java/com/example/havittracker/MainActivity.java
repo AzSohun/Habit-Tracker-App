@@ -27,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
 
+        // It loads the saved data.
+        LoadSavedData();
+
         setContentView(binding.getRoot());
 
         binding.btnAdd.setOnClickListener(new View.OnClickListener() {
@@ -34,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 count++;
-
                 GetUI();
+                SaveCount();
 
             }
         });
@@ -46,6 +49,9 @@ public class MainActivity extends AppCompatActivity {
 
                 count = 0;
                 GetUI();
+                SaveCount();
+                LoadSavedData();
+
 
             }
         });
